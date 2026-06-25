@@ -1,4 +1,4 @@
-# Classificação Hierárquica em Cascata para Diagnóstico de Lesões Cutâneas
+# 🔬 Classificação Hierárquica em Cascata para Diagnóstico de Lesões Cutâneas
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
@@ -28,19 +28,33 @@ Os experimentos foram conduzidos de forma estritamente independente em dois dos 
 
 ## Estrutura do Repositório
 
-Optou-se por separar os experimentos em *Jupyter Notebooks* individuais para garantir total reprodutibilidade acadêmica de cada fase do estudo.
+Optou-se por separar os experimentos em *Jupyter Notebooks* individuais e agrupá-los por base de dados para garantir total reprodutibilidade acadêmica de cada fase do estudo.
 
 ```text
-TCC
- ┣ 📂 metadata/                
- ┣ 📂 notebooks/               
- ┃ ┣ 📜 01_Baseline_ISIC.ipynb
- ┃ ┣ 📜 01_Baseline_HAM10000.ipynb
- ┃ ┣ 📜 02_Filtro_Binario_ISIC.ipynb
- ┃ ┣ 📜 02_Filtro_Binario_HAM10000.ipynb
- ┃ ┣ 📜 03_Filtro_Especialista_ISIC.ipynb
- ┃ ┗ 📜 03_Filtro_Especialista_HAM10000.ipynb
+📦 TCC-Cascata-Melanoma
+ ┣ 📂 metadata/                # Arquivos CSV (GroundTruth e Metadados originais)
+ ┣ 📂 notebooks/               # Scripts de treinamento e avaliação
+ ┃ ┣ 📂 ISIC/                  # Experimentos com a base ISIC 2019
+ ┃ ┃ ┣ 📜 01_Baseline_ISIC.ipynb
+ ┃ ┃ ┣ 📜 02_Filtro_Binario_ISIC.ipynb
+ ┃ ┃ ┗ 📜 03_Filtro_Especialista_ISIC.ipynb
+ ┃ ┗ 📂 HAM10000/              # Experimentos com a base HAM10000
+ ┃   ┣ 📜 01_Baseline_HAM10000.ipynb
+ ┃   ┣ 📜 02_Filtro_Binario_HAM10000.ipynb
+ ┃   ┗ 📜 03_Filtro_Especialista_HAM10000.ipynb
  ┗ 📜 README.md                # Documentação do projeto
+```
+
+## Modelos Pré-treinados (Pesos)
+
+Para facilitar a reprodutibilidade e permitir o uso imediato do sistema em cascata sem a necessidade de retreinar as redes do zero, os pesos finais dos modelos (`.keras`) foram disponibilizados publicamente na seção **Releases** deste repositório.
+
+* **[Clique aqui para acessar a página de Releases e baixar os modelos originais](https://github.com/SeuUsuario/NomeDoRepositorio/releases)**
+
+**Exemplo de carregamento rápido:**
+```python
+from tensorflow.keras.models import load_model
+modelo = load_model('caminho_do_download/ResNet50_Filtro_Binario_ISIC.keras')
 ```
 
 ## Principais Resultados
@@ -51,7 +65,7 @@ A abordagem em cascata demonstrou ser uma ferramenta altamente confiável de Sup
 * **ISIC 2019:** Salto de 62,0% (Baseline) para **93,5%** (Filtro Especialista)
 * **HAM10000:** Salto de 44,9% (Baseline) para **98,8%** (Filtro Especialista)
 
-## 🚀 Como Executar
+## Como Executar
 
 1. Clone o repositório: `git clone https://github.com/SeuUsuario/NomeDoRepositorio.git`
 2. Baixe as imagens originais nos links oficiais citados acima e organize-as no formato de diretórios exigido pelo `ImageDataGenerator` do Keras (`/Train`, `/Val`, `/Test`).
@@ -59,4 +73,4 @@ A abordagem em cascata demonstrou ser uma ferramenta altamente confiável de Sup
 4. Execute as células sequencialmente.
 
 ---
-*Desenvolvido por Werlang, Pedro Valentim Mozzaquatro para o Trabalho de Conclusão de Curso (2026) no curso de Ciência da Computação no Instituto de Computação.*
+*Desenvolvido por Pedro Valentim Mozzaquatro Werlang para o Trabalho de Conclusão de Curso (2026) do curso Ciência da Computação do Instituto da Computação.*

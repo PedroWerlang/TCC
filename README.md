@@ -49,7 +49,7 @@ Optou-se por separar os experimentos em *Jupyter Notebooks* individuais e agrup�
 
 Para facilitar a reprodutibilidade e permitir o uso imediato do sistema em cascata sem a necessidade de retreinar as redes do zero, os pesos finais dos modelos (`.keras`) foram disponibilizados publicamente na seção **Releases** deste repositório.
 
-* **[Clique aqui para acessar a página de Releases e baixar os modelos originais](https://github.com/SeuUsuario/NomeDoRepositorio/releases)**
+* **[Clique aqui para acessar a página de Releases e baixar os modelos originais]([https://github.com/SeuUsuario/NomeDoRepositorio/releases](https://github.com/PedroWerlang/TCC))**
 
 **Exemplo de carregamento rápido:**
 ```python

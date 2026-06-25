@@ -1,4 +1,4 @@
-# 🔬 Classificação Hierárquica em Cascata para Diagnóstico de Lesões Cutâneas
+# Classificação Hierárquica em Cascata para Diagnóstico de Lesões Cutâneas
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
@@ -7,7 +7,7 @@
 
 Repositório oficial contendo os códigos e experimentos do meu Trabalho de Conclusão de Curso (TCC). 
 
-Este projeto propõe uma **arquitetura de Deep Learning em cascata** para mitigar o viés de classes majoritárias no diagnóstico de câncer de pele, com foco especial na subpopulação de pacientes idosos ($\ge$ 60 anos), que sofrem com as assinaturas visuais complexas da senescência cutânea.
+Este projeto propõe uma **arquitetura de Deep Learning em cascata** para mitigar o viés de classes majoritárias no diagnóstico de câncer de pele, com foco especial na subpopulação de pacientes idosos (>= 60 anos), que sofrem com as assinaturas visuais complexas da senescência cutânea.
 
 ---
 
@@ -34,14 +34,14 @@ Optou-se por separar os experimentos em *Jupyter Notebooks* individuais e agrup�
 📦 TCC-Cascata-Melanoma
  ┣ 📂 metadata/                # Arquivos CSV (GroundTruth e Metadados originais)
  ┣ 📂 notebooks/               # Scripts de treinamento e avaliação
- ┃ ┣ 📂 ISIC/                  # Experimentos com a base ISIC 2019
- ┃ ┃ ┣ 📜 01_Baseline_ISIC.ipynb
- ┃ ┃ ┣ 📜 02_Filtro_Binario_ISIC.ipynb
- ┃ ┃ ┗ 📜 03_Filtro_Especialista_ISIC.ipynb
- ┃ ┗ 📂 HAM10000/              # Experimentos com a base HAM10000
- ┃   ┣ 📜 01_Baseline_HAM10000.ipynb
- ┃   ┣ 📜 02_Filtro_Binario_HAM10000.ipynb
- ┃   ┗ 📜 03_Filtro_Especialista_HAM10000.ipynb
+ ┃ ┣ 📂 HAM10000/              # Experimentos com a base HAM10000
+ ┃ ┃ ┣ 📜 01_Baseline_HAM10000.ipynb
+ ┃ ┃ ┣ 📜 02_Filtro_Binario_HAM10000.ipynb
+ ┃ ┃ ┗ 📜 03_Filtro_Especialista_HAM10000.ipynb
+ ┃ ┗ 📂 ISIC/                  # Experimentos com a base ISIC 2019
+ ┃   ┣ 📜 01_Baseline_ISIC.ipynb
+ ┃   ┣ 📜 02_Filtro_Binario_ISIC.ipynb
+ ┃   ┗ 📜 03_Filtro_Especialista_ISIC.ipynb
  ┗ 📜 README.md                # Documentação do projeto
 ```
 
@@ -61,13 +61,13 @@ modelo = load_model('caminho_do_download/ResNet50_Filtro_Binario_ISIC.keras')
 
 A abordagem em cascata demonstrou ser uma ferramenta altamente confiável de Suporte ao Diagnóstico (CAD), especialmente na faixa demográfica de maior risco. Ao isolar a classe majoritária, o sistema reduziu drasticamente os falsos negativos para o câncer mais letal da pele.
 
-**Sensibilidade específica para detecção de Melanoma (Pacientes Idosos $\ge$ 60 anos):**
+**Sensibilidade específica para detecção de Melanoma (Pacientes Idosos >= 60 anos):**
 * **ISIC 2019:** Salto de 62,0% (Baseline) para **93,5%** (Filtro Especialista)
 * **HAM10000:** Salto de 44,9% (Baseline) para **98,8%** (Filtro Especialista)
 
 ## Como Executar
 
-1. Clone o repositório: `git clone https://github.com/SeuUsuario/NomeDoRepositorio.git`
+1. Clone o repositório: `git clone https://github.com/PedroWerlang/TCC.git`
 2. Baixe as imagens originais nos links oficiais citados acima e organize-as no formato de diretórios exigido pelo `ImageDataGenerator` do Keras (`/Train`, `/Val`, `/Test`).
 3. Altere os caminhos das variáveis `base_dir` e `caminho_salvamento` nos notebooks de acordo com o seu ambiente (Google Drive ou Local).
 4. Execute as células sequencialmente.
